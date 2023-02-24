@@ -1,7 +1,7 @@
 package com.example.web_market.models;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +27,9 @@ public class Image {
     @Column(name="isPreviewImage")
     private boolean isPreviewImage;
     @Lob//it defines the column "bytes" as "longblob" type
+    @Column(name = "bytes", columnDefinition = "LONGBLOB")
     private byte[] bytes;
+
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     private Product product;
