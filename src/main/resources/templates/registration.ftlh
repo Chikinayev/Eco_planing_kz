@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Web_market</h1><hr>
+    <h1>Eco planning</h1><hr>
     <h4>Регистрация</h4>
     <form action="/registration" method="post">
         Имя пользователя: <input type="text" name="name"><br><br>

@@ -22,8 +22,8 @@
             </a><br>
         </#if>
         <a class="btn btn-dark mb-3" style="text-align: center; width: 100%"
-           href="/my/products">
-            Мои товары
+           href="/my/events">
+            Мои события
         </a>
         <form action="/logout" method="post">
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>

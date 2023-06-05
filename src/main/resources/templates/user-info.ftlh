@@ -8,23 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Web_market</h1><hr>
+<h1>Eco_planing</h1><hr>
 <h3>Подробная информация о пользователе ${user.name}</h3>
 <b>Номер телефона </b>${user.phoneNumber}<br>
 <b>Email: </b>${user.email}<br>
 
-<h4>Товары пользователя ${user.name}</h4>
+<h4>События пользователя ${user.name}</h4>
 <#list products as product>
     <div>
         <p>
             <b>
                 ${product.title}
             </b>
-            ${product.price} тенге | <a href="/product/${product.id}">Подробнее ...</a>
+            <a href="/event/${product.id}">Подробнее ...</a>
         </p>
     </div>
     <#else>
-    <h3>Товаров нет</h3>
+    <h3>Событий нет</h3>
 
 </#list>
 <#if errorMessage??>

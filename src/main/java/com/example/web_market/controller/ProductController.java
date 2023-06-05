@@ -22,37 +22,37 @@ public class ProductController {
         model.addAttribute("products", productService.listProducts(title));
         model.addAttribute("user", productService.getUserByPrincipal(principal));
         model.addAttribute("searchWord", title);
-        return "products";
+        return "events";
     }
-    @GetMapping("/product/{id}")
+    @GetMapping("/event/{id}")
     public String productInfo(@PathVariable Long id, Model model, Principal principal) {
         Product product = productService.getProductById(id);
         model.addAttribute("user", productService.getUserByPrincipal(principal));
         model.addAttribute("product", product);
         model.addAttribute("images", product.getImages());
         model.addAttribute("authorProduct", product.getUser());
-        return "product-info";
+        return "event-info";
     }
-    @PostMapping("/product/create")
+    @PostMapping("/event/create")
     public String createProduct(@RequestParam("file1") MultipartFile file1,
                                 @RequestParam("file2") MultipartFile file2,
                                 @RequestParam("file3") MultipartFile file3, Product product , Principal principal)throws IOException {
         productService.saveProduct(principal ,product, file1, file2, file3);
-        return "redirect:/my/products";
+        return "redirect:/my/events";
     }
 
-    @PostMapping("/product/delete/{id}")
+    @PostMapping("/event/delete/{id}")
     public String deleteProduct(@PathVariable Long id, Principal principal) {
         productService.deleteProduct(productService.getUserByPrincipal(principal), id);
-        return "redirect:/my/products";
+        return "redirect:/my/events";
     }
 
-    @GetMapping("/my/products")
+    @GetMapping("/my/events")
     public String userProducts(Principal principal, Model model) {
         User user = productService.getUserByPrincipal(principal);
         model.addAttribute("user", user);
         model.addAttribute("products", user.getProducts());
-        return "my-products";
+        return "my-events";
     }
 
 }
